@@ -10,3 +10,4 @@ selenium_env/Lib/
 selenium_env/Scripts/
 .gitignore.idea
 .idea/
+selenium_env/
