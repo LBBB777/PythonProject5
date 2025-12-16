@@ -5,7 +5,7 @@ import TestSetup  # слева имя файла (без расширения .p
 import unittest
 import unittest.result
 import time
-from datetime import time
+#from datetime import time
 #
 # def assertTrue(param, param1):
 #     pass

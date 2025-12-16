@@ -1,4 +1,5 @@
 # TestSetup.py
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -7,6 +8,7 @@ import uuid
 import os
 import shutil
 import psutil
+import sys
 
 class TestSetup:
     def __init__(self):
@@ -17,25 +19,27 @@ class TestSetup:
         os.makedirs(user_data_dir, exist_ok=True)
 
         chrome_options = Options()
-        chrome_options.add_argument('--no-sandbox')  # Отключение песочницы безопасности
-        chrome_options.add_argument(f"--user-data-dir={user_data_dir}")
+        if sys.platform == 'win32':
+            chrome_options.add_argument(r'--user-data-dir=C:\Users\USER\AppData\Local\Google\Chrome\User Data')
+            chrome_options.add_argument('--profile-directory=Profile 1')
+            chrome_options.add_argument(r'--load-extensions=C:\Users\USER\AppData\Local\Google\Chrome\User Data\Profile 1\Extensions\omghfjlpggmjjaagoclmmobgdodcjboh\3.92.10_0 ')
+        else:
+            chrome_options.add_argument('--no-sandbox')  # Отключение песочницы безопасности
+            chrome_options.add_argument(f"--user-data-dir={user_data_dir}")
+            chrome_options.add_argument('--disable-dev-shm-usage')  # Устранение проблем с ресурсами
+            chrome_options.add_argument("--headless=new")
         # Настройки для работы в Docker
-        chrome_options.add_argument('--disable-dev-shm-usage')  # Устранение проблем с ресурсами
 
-        chrome_options.add_argument('--window-size=1920x1080')  # Размер окна
-        chrome_options.add_argument("--headless=new")
+
+        # Убираем следующие строки, так как они не будут работать в Docker:
 
 
         self.driver = webdriver.Chrome(
         #    service=Service('/usr/local/bin/chromedriver'),  # Путь внутри Docker-контейнера //
-            service=webdriver.ChromeService(),
+            service=Service(ChromeDriverManager().install()),
             options=chrome_options
         )
 
-        # Убираем следующие строки, так как они не будут работать в Docker:
-        # chrome_options.add_argument(r'--user-data-dir=C:\Users\USER\AppData\Local\Google\Chrome\User Data')
-        # chrome_options.add_argument('--profile-directory=Profile 1')
-        # chrome_options.add_argument(r'--load-extensions=C:\Users\USER\AppData\Local\Google\Chrome\User Data\Profile 1\Extensions\omghfjlpggmjjaagoclmmobgdodcjboh\3.92.10_0 ')
 
         self.driver.set_page_load_timeout(10)
 

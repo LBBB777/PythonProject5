@@ -1,5 +1,5 @@
 # Используем образ Selenium с Chrome как базовый
-FROM selenium/standalone-chrome:130.0-chromedriver-130.0-20251202
+FROM selenium/standalone-chrome:142.0-chromedriver-142.0-20251202
 
 # Переключаемся на root для установки
 USER root

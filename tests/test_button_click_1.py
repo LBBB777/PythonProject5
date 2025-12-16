@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import TestSetup     #  слева имя файла (без расширения .py)   справа - имя класса внутри этого файла
 import unittest.result
 import time
-from datetime import time
+#from datetime import time
 
 #
 class ButtonLocators(unittest.TestCase):
