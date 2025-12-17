@@ -5,6 +5,7 @@ import TestSetup  # слева имя файла (без расширения .p
 import unittest
 import unittest.result
 import time
+import allure
 #from datetime import time
 #
 # def assertTrue(param, param1):
@@ -36,6 +37,8 @@ class Button_locators(unittest.TestCase):
         print(f"Завершение теста {test_number} из файла {test_file}")
 
     ##########Кнопка Актуальные вакансии  , проверка локаторов
+    @allure.feature('Тестирование функционала страницы авторизации')
+    @allure.story('Авторизация с валидными данными')
     def test_01_button_current_vacancies_ls_1(self):
         # Информация о тесте
         test_number: str = "1"  # Номер теста
@@ -71,7 +74,8 @@ class Button_locators(unittest.TestCase):
             print("=========Завершен тест №{} из файла {} =========================".format(test_number, test_file))
 
     ############################################
-
+    @allure.feature('Тестирование функционала страницы авторизации')
+    @allure.story('Авторизация с валидными данными')
     def test_02_button_current_vacancies_ls_2(self):
         # Информация о тесте
         test_number: str = "2"  # Номер теста
@@ -110,7 +114,8 @@ class Button_locators(unittest.TestCase):
             print("==============Завершен тест №{} из файла {} ========================".format(test_number, test_file))
 
     # ############################################
-    #
+    @allure.feature('Тестирование функционала страницы авторизации')
+    @allure.story('Авторизация с валидными данными')
     def test_03_button_applications_ls_1(self):  # Проверка локаторов кнопки "Оставить заявку" на главной странице
         # Информация о тесте
         test_number: str = "3"  # Номер теста
@@ -148,7 +153,8 @@ class Button_locators(unittest.TestCase):
             print("==========Завершен тест №{} из файла {} ========================".format(test_number, test_file))
 
     #   # ############################################
-
+    @allure.feature('Тестирование функционала страницы авторизации')
+    @allure.story('Авторизация с валидными данными')
     def test_04_button_ToLearnMore_ls_1(self):  # Проверка локаторов кнопки "Узнать больше" на главной странице
         # Информация о тесте
         test_number: str = "4"  # Номер теста

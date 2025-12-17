@@ -8,7 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 #from selenium.webdriver.chrome.profile
 import time
 #from TestSetup import TestSetup     #  слева имя файла (без расширения .py)   справа - имя класса внутри этого файла
-
+import allure
 
 class TestEffectiveMobile(unittest.TestCase):
 
@@ -36,28 +36,40 @@ class TestEffectiveMobile(unittest.TestCase):
     #     #print(chrome_options.arguments)
     #     self.driver.set_page_load_timeout(10)  # Таймаут 10 секунд #
 
-
+    @allure.feature('Тестирование функционала страницы авторизации')
+    @allure.story('Авторизация с валидными данными')
     def test_open_website(self):
         try:
             # Пытаемся открыть сайт
-            self.test_setup.driver.get("https://www.effective-mobile.ru/")
-            self.test_setup.driver.switch_to.window(self.test_setup.driver.window_handles[0])
-            time.sleep(3)  # Даём время на загрузку
+            with allure.step('Пытаемся открыть сайт'):
+                self.test_setup.driver.get("https://www.effective-mobile.ru/")
+                self.test_setup.driver.switch_to.window(self.test_setup.driver.window_handles[0])
+                time.sleep(3)  # Даём время на загрузку
 
             # Проверяем, открылась ли страница
-            if "Effective Mobile" in self.test_setup.driver.title:
-                print("ОТЛИЧНО! Сайт успешно загружен")
-            else:
-                print(f"ВНИМАНИЕ! Ошибка загрузки страницы")
-                print(f"Текущий заголовок: {self.test_setup.driver.title}")
-                print(f"Текущий URL: {self.test_setup.driver.current_url}")
+            with allure.step('Проверяем, открылась ли страница'):
+                if "Effective Mobile" in self.test_setup.driver.title:
+                    print("ОТЛИЧНО! Сайт успешно загружен")
+                else:
+                    print(f"ВНИМАНИЕ! Ошибка загрузки страницы")
+                    print(f"Текущий заголовок: {self.test_setup.driver.title}")
+                    print(f"Текущий URL: {self.test_setup.driver.current_url}")
 
-        except TimeoutException:
-            print("ВНИМАНИЕ! Превышено время ожидания загрузки страницы.")
+
+        # except TimeoutException:
+        #     print("ВНИМАНИЕ! Превышено время ожидания загрузки страницы.")
 
         # except Exception as e:
         #     print(f"ВНИМАНИЕ! Произошла ошибка: {str(e)}")
+        except TimeoutException:
+            with allure.step(f'Обработка исключения — тайм-аут загрузки'):
+                print("ВНИМАНИЕ! Превышено время ожидания загрузки страницы.")
 
+        except Exception as e:
+            with allure.step(f'Обработка неожиданного исключения: {str(e)}'):
+                print(f"ВНИМАНИЕ! Произошла ошибка: {str(e)}")
+
+    
     def tearDown(self):
         # Закрываем браузер
         self.test_setup.driver.quit()

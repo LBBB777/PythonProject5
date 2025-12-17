@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import TestSetup     #  слева имя файла (без расширения .py)   справа - имя класса внутри этого файла
 import unittest.result
 import time
+import allure
 #from datetime import time
 
 #
@@ -44,6 +45,8 @@ class ButtonLocators(unittest.TestCase):
 
         ##########################################
     #####################  ТЕСТ РАБОЧИЙ  #####################
+    @allure.feature('Тестирование функционала страницы авторизации')
+    @allure.story('Авторизация с валидными данными')
     def test_1_button_vacancies_click(self):
         test_number: str = "1"  # Номер теста
         test_file = "test_button_click_1.py"  # Имя файла
@@ -133,6 +136,8 @@ class ButtonLocators(unittest.TestCase):
 
     #######################################################
     ##########################  ТЕСТ РАБОЧИЙ ##################################
+    @allure.feature('Тестирование функционала страницы авторизации')
+    @allure.story('Авторизация с валидными данными')
     def test_2_button_vacancies_click(self):
         test_number: str = "2"  # Номер теста
         test_file = "test_button_click_1.py"  # Имя файла
@@ -206,6 +211,8 @@ class ButtonLocators(unittest.TestCase):
 #     unittest.main()
 
         ################################ ТЕСТ РАБОЧИЙ   ##########################
+    @allure.feature('Тестирование функционала страницы авторизации')
+    @allure.story('Авторизация с валидными данными')
     def test_3_button_vacancies_click(self):
         test_number: str = "3"  # Номер теста
         test_file = "test_button_click_1.py"  # Имя файла

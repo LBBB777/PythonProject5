@@ -9,6 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import TestSetup     #  слева имя файла (без расширения .py)   справа - имя класса внутри этого файла
 import unittest.result
+import allure
 
 # Предназначение  кейса тестов.
 # Служит для мониторинга доступности URL главной страницы ( тест 1) и других страниц, на которые осуществляется пекреход с главной страницы.
@@ -45,6 +46,8 @@ class WebsiteUrlTests(unittest.TestCase):
         print("-" * 60)  # Добавляем разделитель снизу
 
         #################  Тестируется URL главной страницы  #################
+    @allure.feature('Тестируется URL главной страницы ')
+    @allure.story('Тестируется URL главной страницы')
     def test_01_URL_main_page(self):
 
         url = "https://www.effective-mobile.ru/"
@@ -133,6 +136,8 @@ class WebsiteUrlTests(unittest.TestCase):
 
 
      #################  Тестируется URL страницы Вакансии  #################
+    @allure.feature('Тестируется URL страницы Вакансии ')
+    @allure.story('Тестируется URL страницы Вакансии ')
     def test_02_URL_main_page(self):
 
         url = "https://ai-hunt.ru/vacancies/"
@@ -220,7 +225,8 @@ class WebsiteUrlTests(unittest.TestCase):
 # ################  Раздел Кого мы ищем #####################
 
     #############  Junior IOS-разработчик####  кнопка QA Engineer  главной страницы ######
-
+    @allure.feature('ТТестируется URL страницы Junior IOS-разработчик// \nКнопка перехода с главной страницы QA Engineer')
+    @allure.story('Тестируется URL страницы Junior IOS-разработчик// \nКнопка перехода с главной страницы QA Engineer')
     def test_03_URL_main_page(self):
 
         url = "https://ai-hunt.ru/vacancies/IOS"
@@ -308,7 +314,8 @@ class WebsiteUrlTests(unittest.TestCase):
 
 
     #############  Junior Android-разработчик  ####  кнопка Android Developer  ######
-
+    @allure.feature('Тестируется URL страницы Junior Android-разработчик// \nКнопка перехода с главной страницы  Android Developer ')
+    @allure.story('Тестируется URL страницы Junior Android-разработчик// \nКнопка перехода с главной страницы  Android Developer ')
     def test_04_URL_main_page(self):
 
         url = "https://ai-hunt.ru/vacancies/ANDROID"
@@ -396,7 +403,8 @@ class WebsiteUrlTests(unittest.TestCase):
 
 ##########################
     #############  unior DevOps-инженерк  ####  кнопка yf главной страницы  DevOps Engineer ######
-
+    @allure.feature('Тестируется URL страницы Junior DevOps-инженер// \nКнопка перехода с главной страницы  DevOps Engineer')
+    @allure.story('Тестируется URL страницы Junior DevOps-инженер// \nКнопка перехода с главной страницы  DevOps Engineer')
     def test_05_URL_main_page(self):
 
         url = "https://ai-hunt.ru/vacancies/DEVOPS"
@@ -486,7 +494,8 @@ class WebsiteUrlTests(unittest.TestCase):
 #  ############################
 
 #############  unior DevOps-инженерк  ####  кнопка на главной страницы  Аналитик ######
-
+    @allure.feature('Тестируется URL страницы Junior Системный аналитик// \nКнопка перехода на главной странице  Аналитик ')
+    @allure.story('Тестируется URL страницы Junior Системный аналитик// \nКнопка перехода на главной странице  Аналитик ')
     def test_06_URL_main_page(self):
         url = "https://ai-hunt.ru/vacancies/SA"
 
@@ -579,7 +588,8 @@ class WebsiteUrlTests(unittest.TestCase):
 
 
 #############  Junior Project Manager  ####  кнопка на главной страницы  Project Manager ######
-
+    @allure.feature('Тестируется URL страницы Junior Project Manager// \nКнопка перехода на главной странице  Project Manager ')
+    @allure.story('Тестируется URL страницы Junior Project Manager// \nКнопка перехода на главной странице  Project Manager ')
     def test_07_URL_main_page(self):
         url = "https://ai-hunt.ru/vacancies/PM"
 
@@ -668,7 +678,8 @@ class WebsiteUrlTests(unittest.TestCase):
 ############################
 
 ############  Junior Project Manager  ####  кнопка на главной странице  Unity Developer ######
-
+    @allure.feature('Кнопка перехода на главной странице - Project Manager// тестируется URL  на который осуществляется переход//')
+    @allure.story('Кнопка перехода на главной странице - Project Manager// тестируется URL  на который осуществляется переход//')
     def test_08_URL_main_page(self):
         url = "https://ai-hunt.ru/vacancies/"
 
