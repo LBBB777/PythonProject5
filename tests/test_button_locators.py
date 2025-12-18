@@ -37,8 +37,8 @@ class Button_locators(unittest.TestCase):
         print(f"Завершение теста {test_number} из файла {test_file}")
 
     ##########Кнопка Актуальные вакансии  , проверка локаторов
-    @allure.feature('Тестирование функционала страницы авторизации')
-    @allure.story('Авторизация с валидными данными')
+    @allure.feature("Проверка нахождения кнопки Актуальные вакансии' по XPath: //a[@data-slot='button' and @href='https://ai-hunt.ru/vacancies/']")
+    @allure.story("Проверка нахождения кнопки Актуальные вакансии' по XPath: //a[@data-slot='button' and @href='https://ai-hunt.ru/vacancies/']")
     def test_01_button_current_vacancies_ls_1(self):
         # Информация о тесте
         test_number: str = "1"  # Номер теста
@@ -74,8 +74,8 @@ class Button_locators(unittest.TestCase):
             print("=========Завершен тест №{} из файла {} =========================".format(test_number, test_file))
 
     ############################################
-    @allure.feature('Тестирование функционала страницы авторизации')
-    @allure.story('Авторизация с валидными данными')
+    @allure.feature('Проверка нахождения кнопки Актуальные вакансии\' по XPath: //a[text()="Актуальные вакансии"]')
+    @allure.story('Проверка нахождения кнопки Актуальные вакансии\' по XPath: //a[text()="Актуальные вакансии"]')
     def test_02_button_current_vacancies_ls_2(self):
         # Информация о тесте
         test_number: str = "2"  # Номер теста
@@ -114,8 +114,8 @@ class Button_locators(unittest.TestCase):
             print("==============Завершен тест №{} из файла {} ========================".format(test_number, test_file))
 
     # ############################################
-    @allure.feature('Тестирование функционала страницы авторизации')
-    @allure.story('Авторизация с валидными данными')
+    @allure.feature( "Проверка нахождения кнопки  Оставить заявку на главной странице по CSS локатору  button[data-slot='button'][class*='bg-brand-primary']")
+    @allure.story( "Проверка нахождения кнопки  Оставить заявку на главной странице по CSS локатору  button[data-slot='button'][class*='bg-brand-primary']")
     def test_03_button_applications_ls_1(self):  # Проверка локаторов кнопки "Оставить заявку" на главной странице
         # Информация о тесте
         test_number: str = "3"  # Номер теста
@@ -153,8 +153,8 @@ class Button_locators(unittest.TestCase):
             print("==========Завершен тест №{} из файла {} ========================".format(test_number, test_file))
 
     #   # ############################################
-    @allure.feature('Тестирование функционала страницы авторизации')
-    @allure.story('Авторизация с валидными данными')
+    @allure.feature("Проверка нахождения кнопки  Узнать больше на главной странице по XPath-локатору 'button[text()='Узнать больше' and @data-slot='button']")
+    @allure.story("Проверка нахождения кнопки  Узнать больше на главной странице по XPath-локатору 'button[text()='Узнать больше' and @data-slot='button']")
     def test_04_button_ToLearnMore_ls_1(self):  # Проверка локаторов кнопки "Узнать больше" на главной странице
         # Информация о тесте
         test_number: str = "4"  # Номер теста
